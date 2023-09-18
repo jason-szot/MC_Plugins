@@ -26,6 +26,6 @@ replay_pid*
 
 #Eclipse generated files and folders
 /.settings/
-/bin
+/bin/
 .classpath
 .project
