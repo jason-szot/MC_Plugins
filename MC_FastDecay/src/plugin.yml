@@ -1,0 +1,12 @@
+name: Fast_Leaf_Decay
+version: 1.0
+api-version: 1.20
+main: com.daemonresolve.mc.FastDecay
+author: jason szot
+description: gets rid of leaves fast
+
+commands:
+  decay:
+    usage: /<command> on/off
+    aliases: [fd]
+    description: turns fast decay on or off

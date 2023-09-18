@@ -1,0 +1,11 @@
+name: DeathPoint
+version: 1.0
+main: com.daemonresolve.mc.DeathPoint
+author: jason szot
+description: death point teleport plugin
+
+commands:
+  deathpoint:
+    usage: /<command>
+    aliases: [dp, back]
+    description: teleports to where you last died
