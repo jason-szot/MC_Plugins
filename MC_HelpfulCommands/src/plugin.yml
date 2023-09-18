@@ -1,0 +1,16 @@
+name: Helpful_Commands
+version: 1.0
+api-version: 1.20
+main: com.daemonresolve.mc.HelpfulCMD
+author: jason szot
+description: collection of helpful commands
+
+commands:
+  craft:
+    usage: /<command>
+    aliases: [fd]
+    description: opens crafting table
+  ender:
+    usage: /<command>
+    aliases: [ec]
+    description: opens your ender chest
