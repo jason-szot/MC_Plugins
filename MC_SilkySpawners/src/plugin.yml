@@ -1,0 +1,8 @@
+name: SilkySpawners
+version: 1.1
+api-version: 1.20
+main: com.daemonresolve.mc.SilkySpawner
+author: jason szot
+description: Mine your Spawners with Silk Touch Pickaxes
+
+# grabbed from https://gitlab.com/kodysimpson/cortexspawner/

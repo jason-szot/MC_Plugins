@@ -67,6 +67,9 @@ public class Kits extends JavaPlugin{
 					case 8:
 						kit_8(p, pi);
 						return true;
+					case 9:
+						kit_9(p, pi);
+						return true;
 					default:
 						p.sendMessage(ChatColor.RED + "Not a valid kit number");
 						return true;
@@ -82,12 +85,15 @@ public class Kits extends JavaPlugin{
 			sender.sendMessage(ChatColor.YELLOW + "Kit 6: Storage Kit");
 			sender.sendMessage(ChatColor.YELLOW + "Kit 7: Lumberjack Kit");
 			sender.sendMessage(ChatColor.YELLOW + "Kit 8: Advanced Combat Kit");
+			sender.sendMessage(ChatColor.YELLOW + "Kit 9: Silk Touch Kit");
 			return true;
 		}
 		
 		
 		return true;
 	}
+
+	
 
 	/// Kit functions
 	/// public void kit_<number>(Player p, PlayerInventory pi){
@@ -129,10 +135,10 @@ public class Kits extends JavaPlugin{
 	public void kit_4(Player p, PlayerInventory pi){
 		// Create enchanted pick
 		ItemStack Pick = new ItemStack(Material.DIAMOND_PICKAXE,1);
-		Pick = maxEnchant(Pick, "pickaxe");
+		Pick = maxEnchantPickAxe(Pick);
 		// Create enchanted shovel
 		ItemStack Shovel = new ItemStack(Material.DIAMOND_SHOVEL,1);
-		Shovel = maxEnchant(Shovel, "shovel");
+		Shovel = maxEnchantShovel(Shovel);
 		pi.addItem(Pick);
 		pi.addItem(Pick);
 		pi.addItem(Shovel);
@@ -174,7 +180,7 @@ public class Kits extends JavaPlugin{
 		public void kit_7(Player p, PlayerInventory pi){
 			// Create enchanted pick
 			ItemStack axe = new ItemStack(Material.DIAMOND_AXE,1);
-			axe = maxEnchant(axe, "axe");
+			axe = maxEnchantAxe(axe);
 			pi.addItem(axe);
 			pi.addItem(axe);
 			p.sendMessage(ChatColor.GREEN + "You got your kit!");
@@ -191,17 +197,17 @@ public class Kits extends JavaPlugin{
 			ItemStack shield = new ItemStack(Material.SHIELD, 1);
 			ItemStack gapple = new ItemStack(Material.ENCHANTED_GOLDEN_APPLE, 16);
 			// enchant sword
-			sword = maxEnchant(sword, "sword");
+			sword = maxEnchantSword(sword);
 			// enchant helmet
-			helmet = maxEnchant(helmet, "helm");
+			helmet = maxEnchantHelm(helmet);
 			// enchant leggings
-			pants = maxEnchant(pants, "pants");
+			pants = maxEnchantPants(pants);
 			// enchant boots
-			boots = maxEnchant(boots, "boots");
+			boots = maxEnchantBoots(boots);
 			// enchant chest
-			shirt = maxEnchant(shirt, "shirt");
+			shirt = maxEnchantShirt(shirt);
 			// enchant shield
-			shield = maxEnchant(shield, "shield");
+			shield = maxEnchantShield(shield);
 			// give items to player
 
 			pi.addItem(sword);
@@ -217,82 +223,108 @@ public class Kits extends JavaPlugin{
 		}
 		
 		
-		
-		
-		
-		
-		public ItemStack maxEnchant(ItemStack item, String type) {
+		public void kit_9(Player p, PlayerInventory pi) {
+			ItemStack Pick = new ItemStack(Material.DIAMOND_PICKAXE,1);
+			Pick = SilkTouch(Pick);
+			// Create enchanted shovel
+			ItemStack Shovel = new ItemStack(Material.DIAMOND_SHOVEL,1);
+			Shovel = SilkTouch(Shovel);
+			pi.addItem(Pick);
+			pi.addItem(Shovel);
 			
-			switch (type) {
-				case "sword":
-					item.addEnchantment(Enchantment.FIRE_ASPECT, 2);
-					item.addEnchantment(Enchantment.LOOT_BONUS_MOBS, 3);
-					item.addEnchantment(Enchantment.DURABILITY, 3);
-					item.addEnchantment(Enchantment.DAMAGE_ALL, 5);
-					item.addEnchantment(Enchantment.MENDING, 1);
-					item.addEnchantment(Enchantment.SWEEPING_EDGE, 3);
-					break;
-				case "helm":
-					item.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
-					item.addEnchantment(Enchantment.DURABILITY, 3);
-					item.addEnchantment(Enchantment.OXYGEN, 3);
-					item.addEnchantment(Enchantment.WATER_WORKER, 1);
-					item.addEnchantment(Enchantment.THORNS, 3);
-					item.addEnchantment(Enchantment.MENDING, 1);
-					break;
-				case "pants":
-					item.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
-					item.addEnchantment(Enchantment.DURABILITY, 3);
-					item.addEnchantment(Enchantment.THORNS, 3);
-					item.addEnchantment(Enchantment.MENDING, 1);
-					item.addEnchantment(Enchantment.SWIFT_SNEAK, 3);
-					break;
-				case "boots":
-					item.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
-					item.addEnchantment(Enchantment.DURABILITY, 3);
-					item.addEnchantment(Enchantment.PROTECTION_FALL, 4);
-					item.addEnchantment(Enchantment.DEPTH_STRIDER, 3);
-					item.addEnchantment(Enchantment.THORNS, 3);
-					item.addEnchantment(Enchantment.SOUL_SPEED, 3);
-					item.addEnchantment(Enchantment.MENDING, 1);
-					break;
-				case "shirt":
-					item.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
-					item.addEnchantment(Enchantment.DURABILITY, 3);
-					item.addEnchantment(Enchantment.THORNS, 3);
-					item.addEnchantment(Enchantment.MENDING, 1);
-					break;
-				case "pickaxe":
-					item.addEnchantment(Enchantment.DIG_SPEED, 5);
-					item.addEnchantment(Enchantment.DURABILITY, 3);
-					item.addEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 3);
-					item.addEnchantment(Enchantment.MENDING, 1);
-					break;
-				case "axe":
-					item.addEnchantment(Enchantment.DIG_SPEED, 5);
-					item.addEnchantment(Enchantment.DURABILITY, 3);
-					item.addEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 3);
-					item.addEnchantment(Enchantment.DAMAGE_ALL, 5);
-					item.addEnchantment(Enchantment.MENDING, 1);
-					break;
-				case "shovel":
-					item.addEnchantment(Enchantment.DIG_SPEED, 5);
-					item.addEnchantment(Enchantment.DURABILITY, 3);
-					item.addEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 3);
-					item.addEnchantment(Enchantment.MENDING, 1);
-					break;
-				case "shield":
-					item.addEnchantment(Enchantment.DURABILITY, 3);
-					item.addEnchantment(Enchantment.MENDING, 1);
-					break;
-				case "silk_touch":
-					item.addEnchantment(Enchantment.SILK_TOUCH, 1);
-					break;
-				default:
-					break;
-				
-			}
 			
+		}
+		
+		
+		
+		
+		
+		private ItemStack SilkTouch(ItemStack item) {
+			item.addEnchantment(Enchantment.SILK_TOUCH, 1);
+			item.addEnchantment(Enchantment.DIG_SPEED, 5);
+			item.addEnchantment(Enchantment.DURABILITY, 3);
+			item.addEnchantment(Enchantment.MENDING, 1);
 			return item;
 		}
+		
+		public ItemStack maxEnchantSword(ItemStack item) {
+			item.addEnchantment(Enchantment.FIRE_ASPECT, 2);
+			item.addEnchantment(Enchantment.LOOT_BONUS_MOBS, 3);
+			item.addEnchantment(Enchantment.DURABILITY, 3);
+			item.addEnchantment(Enchantment.DAMAGE_ALL, 5);
+			item.addEnchantment(Enchantment.MENDING, 1);
+			item.addEnchantment(Enchantment.SWEEPING_EDGE, 3);
+			return item;
+		}
+		
+		public ItemStack maxEnchantHelm(ItemStack item) {
+			item.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
+			item.addEnchantment(Enchantment.DURABILITY, 3);
+			item.addEnchantment(Enchantment.OXYGEN, 3);
+			item.addEnchantment(Enchantment.WATER_WORKER, 1);
+			item.addEnchantment(Enchantment.THORNS, 3);
+			item.addEnchantment(Enchantment.MENDING, 1);
+			return item;
+		}
+		
+		public ItemStack maxEnchantBoots(ItemStack item) {
+			item.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
+			item.addEnchantment(Enchantment.DURABILITY, 3);
+			item.addEnchantment(Enchantment.PROTECTION_FALL, 4);
+			item.addEnchantment(Enchantment.DEPTH_STRIDER, 3);
+			item.addEnchantment(Enchantment.THORNS, 3);
+			item.addEnchantment(Enchantment.SOUL_SPEED, 3);
+			item.addEnchantment(Enchantment.MENDING, 1);
+			return item;
+		}
+		
+		public ItemStack maxEnchantShirt(ItemStack item) {
+			item.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
+			item.addEnchantment(Enchantment.DURABILITY, 3);
+			item.addEnchantment(Enchantment.THORNS, 3);
+			item.addEnchantment(Enchantment.MENDING, 1);
+			return item;
+		}
+		
+		public ItemStack maxEnchantPickAxe(ItemStack item) {
+			item.addEnchantment(Enchantment.DIG_SPEED, 5);
+			item.addEnchantment(Enchantment.DURABILITY, 3);
+			item.addEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 3);
+			item.addEnchantment(Enchantment.MENDING, 1);
+			return item;
+		}
+		
+		public ItemStack maxEnchantAxe(ItemStack item) {
+			item.addEnchantment(Enchantment.DIG_SPEED, 5);
+			item.addEnchantment(Enchantment.DURABILITY, 3);
+			item.addEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 3);
+			item.addEnchantment(Enchantment.DAMAGE_ALL, 5);
+			item.addEnchantment(Enchantment.MENDING, 1);
+			return item;
+		}
+		
+		public ItemStack maxEnchantShovel(ItemStack item) {
+			item.addEnchantment(Enchantment.DIG_SPEED, 5);
+			item.addEnchantment(Enchantment.DURABILITY, 3);
+			item.addEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 3);
+			item.addEnchantment(Enchantment.MENDING, 1);
+			return item;
+		}
+		
+		public ItemStack maxEnchantPants(ItemStack item) {
+			item.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
+			item.addEnchantment(Enchantment.DURABILITY, 3);
+			item.addEnchantment(Enchantment.THORNS, 3);
+			item.addEnchantment(Enchantment.MENDING, 1);
+			item.addEnchantment(Enchantment.SWIFT_SNEAK, 3);
+			return item;
+		}
+		
+		public ItemStack maxEnchantShield(ItemStack item) {
+			item.addEnchantment(Enchantment.DURABILITY, 3);
+			item.addEnchantment(Enchantment.MENDING, 1);
+			return item;
+		}
+		
+
 }
