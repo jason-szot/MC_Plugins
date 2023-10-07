@@ -7,8 +7,6 @@ description: simple kits plugin
 
 commands:
   kit:
-    usage: /<command> kit number
-    description: gives you a kit
-  listkits:
     usage: /<command>
-    description: lists available kits
+    aliases: [kits]
+    description: Opens the kits menu
