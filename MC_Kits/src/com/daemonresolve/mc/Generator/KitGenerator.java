@@ -9,7 +9,8 @@ import net.md_5.bungee.api.ChatColor;
 
 public class KitGenerator {
 
-	public static void give(int number, Player p, PlayerInventory pi) {
+	public static void give(int number, Player p) {
+		PlayerInventory pi = p.getInventory();
 		switch (number) {
 		case 0:
 			kit_0(p, pi);

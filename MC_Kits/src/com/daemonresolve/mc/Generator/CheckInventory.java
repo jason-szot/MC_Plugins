@@ -9,9 +9,8 @@ public class CheckInventory {
 		int i = 0;
 		for ( ItemStack item : inventory) {
 			if (item == null) i++;
-			if (i == count) return false;
 		}
-		return true;
+		return i >= count;
 	}
 	
 }
