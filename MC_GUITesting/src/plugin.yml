@@ -1,0 +1,10 @@
+name: GUI_Menu_Testing
+version: 1.0
+main: com.daemonresolve.mc.Menu
+author: jason szot
+description: Testing GUI inventory menus
+
+commands:
+  menu:
+    usage: /<command>
+    description: opens a menu
