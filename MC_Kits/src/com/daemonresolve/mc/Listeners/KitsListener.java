@@ -13,6 +13,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import com.daemonresolve.mc.Generator.KitGenerator;
@@ -67,11 +68,11 @@ public class KitsListener implements Listener {
         if (clickedItem == null || clickedItem.getType().isAir()) return;
 
         final Player p = (Player) e.getWhoClicked();
-
-        KitGenerator.give(e.getRawSlot(), p);
+        PlayerInventory pi = p.getInventory();
+        KitGenerator.give(e.getRawSlot(), p, pi);
         
         // Using slots click is a best option for your inventory click's
-        p.sendMessage("You clicked at slot " + e.getRawSlot());
+        // p.sendMessage("You clicked at slot " + e.getRawSlot());
     }
 	
 	@EventHandler
