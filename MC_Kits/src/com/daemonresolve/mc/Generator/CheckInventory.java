@@ -13,5 +13,4 @@ public class CheckInventory {
 		}
 		return true;
 	}
-	
 }
