@@ -33,6 +33,12 @@ public class KitGenerator {
 		case 7:
 			Kit_7.create(p, pi);
 			break;
+		case 8:
+			Kit_8.create(p, pi);
+			break;
+		case 9:
+			Kit_9.create(p, pi);
+			break;
 		}
 	}
 }

@@ -8,14 +8,16 @@ import org.bukkit.inventory.PlayerInventory;
 import com.daemonresolve.mc.Generator.CheckInventory;
 import com.daemonresolve.mc.Generator.Enchanter;
 
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 
 public class Kit_2 {
 	// Kit 2: combat kit - max enchanted netherite armor, netherite sword, shield, 16 enchanted golden apples
+	// size value for check inventory
+	private static int size = 7;
 	
 	public static void create(Player p, PlayerInventory pi) {
 		// Check if there is enough inventory space
-		if (CheckInventory.checkInventory(pi, 7)) return;
+		if (CheckInventory.checkInventory(pi, size)) return;
 		ItemStack helmet = new ItemStack(Material.NETHERITE_HELMET,1);
 		ItemStack pants = new ItemStack(Material.NETHERITE_LEGGINGS,1);
 		ItemStack boots = new ItemStack(Material.NETHERITE_BOOTS,1);

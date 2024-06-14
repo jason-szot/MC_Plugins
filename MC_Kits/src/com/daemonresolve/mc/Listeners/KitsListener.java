@@ -23,19 +23,21 @@ public class KitsListener implements Listener {
 	private static Inventory KitMenu;
 	
 	public KitsListener() {
-		KitMenu = Bukkit.createInventory(null, 9, ChatColor.GOLD + "Get Your Kits");
+		KitMenu = Bukkit.createInventory(null, 18, ChatColor.GOLD + "Get Your Kits");
 		initializeMenu();
 	}
 
 	private void initializeMenu() {
-		KitMenu.addItem(createGuiItem(Material.DIAMOND_PICKAXE, "§bMining Kit", "§a2 Enchanted Diamond Pickaxes", "§b1 Enchanted Diamond Shovel", "§c3 Stacks of Torches"));
+		KitMenu.addItem(createGuiItem(Material.DIAMOND_PICKAXE, "§bMining Kit", "§a2 Enchanted Diamond Pickaxes"));
 		KitMenu.addItem(createGuiItem(Material.EXPERIENCE_BOTTLE, "§bExperience Kit", "§a2 Stacks of Experience Bottles", "§b1 Stack of Lapis Lazuli"));
 		KitMenu.addItem(createGuiItem(Material.DIAMOND_SWORD, "§bCombat Kit", "§aFull Set of Enchanted Netherite Armor", "§bEnchanted Diamond Sword", "§cEnchanted Shield", "§d16 Enchanted Golden Apples"));
-		KitMenu.addItem(createGuiItem(Material.CHEST, "§bAuto-Sorting Storage Kit", "§aChests, Hoppers, Redstone"));
+		KitMenu.addItem(createGuiItem(Material.CHEST, "§bStorage Kit", "§aChests, Hoppers, and redstone"));
 		KitMenu.addItem(createGuiItem(Material.DIAMOND_AXE, "§bLumberjack Kit", "§a2 Enchanted Diamond Axes"));
 		KitMenu.addItem(createGuiItem(Material.COBWEB, "§bSilk Touch Kit", "§aEnchanted Diamond Pickaxe", "§bEnchanted Diamond Shovel"));
 		KitMenu.addItem(createGuiItem(Material.BAKED_POTATO, "§bFood Kit", "§a64 Baked Potatoes"));
 		KitMenu.addItem(createGuiItem(Material.ENCHANTING_TABLE, "§bEnchanting Table Kit", "§aEnchanting Table", "§b15 Bookshelves", "§b1 Anvil"));
+		KitMenu.addItem(createGuiItem(Material.HOPPER, "§bBulk Storage Kit", "§aChests and Hoppers"));
+		KitMenu.addItem(createGuiItem(Material.DIAMOND_SHOVEL, "§bDigging Kit", "§a2 Enchanted Diamond Shovels"));
 	}
 	
 	private ItemStack createGuiItem(final Material material, final String name, final String... lore) {
