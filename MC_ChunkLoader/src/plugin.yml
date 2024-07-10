@@ -1,0 +1,12 @@
+name: Chunk_Loader
+version: 1.0
+api-version: 1.20
+main: com.daemonresolve.mc.ChunkLoader
+author: jason szot
+description: chunk loader commands
+
+commands:
+  chunkloader:
+    usage: /<command>
+    aliases: [cl,chunks]
+    description: Chunk Loader Commands

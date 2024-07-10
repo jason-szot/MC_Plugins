@@ -4,7 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 
 public class DP_Listener implements Listener{
 	private DeathPoint dp;

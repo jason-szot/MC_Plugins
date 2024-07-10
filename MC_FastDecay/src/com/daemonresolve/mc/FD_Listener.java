@@ -155,7 +155,7 @@ public class FD_Listener implements Listener {
 	private void Particles(Block block) {
 		// do particles
 		block.getWorld()
-        .spawnParticle(Particle.BLOCK_DUST,
+        .spawnParticle(Particle.DUST,
                        block.getLocation().add(0.5, 0.5, 0.5),
                        8, 0.2, 0.2, 0.2, 0,
                        block.getType().createBlockData());

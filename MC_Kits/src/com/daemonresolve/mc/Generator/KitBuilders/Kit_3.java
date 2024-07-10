@@ -7,18 +7,21 @@ import org.bukkit.inventory.PlayerInventory;
 
 import com.daemonresolve.mc.Generator.CheckInventory;
 
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 
 public class Kit_3 {
 	// Kit 3: Storage Kit
+	// size value for check inventory
+	private static int size = 11;
 	
 	public static void create(Player p, PlayerInventory pi) {
 		// Check if there is enough inventory space
-		if (CheckInventory.checkInventory(pi, 10)) return;
+		if (CheckInventory.checkInventory(pi, size)) return;
 		pi.addItem(new ItemStack(Material.CHEST, 64));
 		pi.addItem(new ItemStack(Material.CHEST, 64));
 		pi.addItem(new ItemStack(Material.CHEST, 64));
 		pi.addItem(new ItemStack(Material.CHEST, 64));
+		pi.addItem(new ItemStack(Material.HOPPER, 64));
 		pi.addItem(new ItemStack(Material.HOPPER, 64));
 		pi.addItem(new ItemStack(Material.HOPPER, 64));
 		pi.addItem(new ItemStack(Material.HOPPER, 64));
