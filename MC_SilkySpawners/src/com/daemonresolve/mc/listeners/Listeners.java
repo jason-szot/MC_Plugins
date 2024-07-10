@@ -27,6 +27,7 @@ public class Listeners implements Listener{
         spawner_to_give.setItemMeta(meta);
 
         e.getBreaker().getInventory().addItem(spawner_to_give);
+        
     }
 
 	
